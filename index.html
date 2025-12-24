@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Balaji Associates Invoice</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="controls">
+  <h2>Invoice Controls</h2>
+
+  <label>Invoice No</label>
+  <input id="invoiceNoInput">
+
+  <button onclick="newInvoice()">New Invoice</button>
+  <button onclick="saveInvoice()">Save Invoice</button>
+  <button onclick="toggleDark()">🌙 Dark Mode</button>
+
+  <select id="savedInvoices" onchange="loadInvoice(this.value)">
+    <option value="">Load Saved Invoice</option>
+  </select>
+
+  <h3>Billed To</h3>
+
+  <label>Name</label>
+  <input id="buyerName">
+
+  <label>Address</label>
+  <textarea id="buyerAddress"></textarea>
+
+  <label>GSTIN</label>
+  <input id="buyerGST">
+
+  <label>GST Rate (%)</label>
+  <input id="gstRate" type="number" value="18">
+
+  <h3>Items</h3>
+
+  <table class="input-table">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>HSN</th>
+        <th>UOM</th>
+        <th>Qty</th>
+        <th>Rate</th>
+        <th>❌</th>
+      </tr>
+    </thead>
+    <tbody id="itemInputs"></tbody>
+  </table>
+
+  <button onclick="addItem()">+ Add Item</button>
+  <button onclick="updateInvoice()">Update Invoice</button>
+  <button onclick="window.print()">Print / PDF</button>
+</div>
+
+<hr>
+
+<div id="invoice">
+
+  <div class="header">
+    <img src="logo.png" class="logo">
+    <h1>BALAJI ASSOCIATES</h1>
+    <p>AURI MORE, P.O. ANPARA, DISTT. SONEBHADRA-231225 (U.P.)</p>
+    <p>📞 9415323581</p>
+    <p><b>GSTIN:</b> 09ATZPG3622L1Z2 | <b>PAN:</b> ATZPG3622L</p>
+    <h2>TAX INVOICE</h2>
+  </div>
+
+  <div class="row">
+    <div>
+      <b>Billed To:</b>
+      <p id="buyerDisplay"></p>
+      <p id="buyerAddressDisplay"></p>
+      <p><b>GSTIN:</b> <span id="buyerGSTDisplay"></span></p>
+    </div>
+
+    <div>
+      <p><b>Invoice No:</b> <span id="invoiceNo"></span></p>
+      <p><b>Date:</b> 04-08-2020</p>
+      <p><b>Payment:</b> CASH / CREDIT</p>
+      <p><b>Terms:</b> 30 DAYS</p>
+    </div>
+  </div>
+
+  <table class="invoice-table">
+    <thead>
+      <tr>
+        <th>Sl</th>
+        <th>Description</th>
+        <th>HSN</th>
+        <th>UOM</th>
+        <th>Qty</th>
+        <th>Rate</th>
+        <th>Taxable</th>
+        <th>CGST</th>
+        <th>SGST</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody id="invoiceItems"></tbody>
+  </table>
+
+  <div class="totals">
+    <p>Amount Before Tax: ₹ <span id="subtotal">0</span></p>
+    <p>Add CGST: ₹ <span id="cgst">0</span></p>
+    <p>Add SGST: ₹ <span id="sgst">0</span></p>
+    <h3>Total Amount: ₹ <span id="grandTotal">0</span></h3>
+    <p><b>Amount in Words:</b> <span id="amountWords"></span></p>
+  </div>
+
+  <div class="footer">
+    <p><b>Bank:</b> Bank of India, Anpara</p>
+    <p><b>A/C No:</b> 62920110000284</p>
+    <p><b>IFSC:</b> BKID0006929</p>
+    <p class="sign">For BALAJI ASSOCIATES<br><br>Authorized Signatory</p>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
