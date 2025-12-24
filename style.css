@@ -1,0 +1,99 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.controls {
+  background: #f4f4f4;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  height: 60px;
+  resize: none;
+}
+
+button, select {
+  margin: 5px 0;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+#invoice {
+  background: white;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.header {
+  text-align: center;
+}
+
+.logo {
+  height: 70px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.invoice-table,
+.input-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.invoice-table th,
+.invoice-table td,
+.input-table th,
+.input-table td {
+  border: 1px solid #000;
+  padding: 6px;
+  text-align: center;
+}
+
+.totals {
+  margin-top: 15px;
+  text-align: right;
+}
+
+.footer {
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+.sign {
+  margin-top: 40px;
+  text-align: right;
+}
+
+body.dark {
+  background: #121212;
+  color: #eaeaea;
+}
+
+body.dark .controls {
+  background: #1f1f1f;
+}
+
+body.dark #invoice {
+  background: white;
+  color: black;
+}
+
+@media print {
+  .controls {
+    display: none;
+  }
+}
